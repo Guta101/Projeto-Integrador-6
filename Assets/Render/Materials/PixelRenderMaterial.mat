@@ -401,7 +401,7 @@ Material:
     - _Is_ViewCoord_Scroll: 0
     - _Is_ViewShift: 0
     - _LightDirection_MaskOn: 0
-    - _LightScalar: 1.16
+    - _LightScalar: 1.7
     - _LinkDetailsWithBase: 1
     - _LowIntensity: 1.65
     - _Lumin: 0
@@ -432,7 +432,7 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
-    - _RampLevels: 2
+    - _RampLevels: 3
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _ResX: 160
