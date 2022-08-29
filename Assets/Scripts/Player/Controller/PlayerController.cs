@@ -17,5 +17,4 @@ public class PlayerController : ScriptableObject
     {
         PlayerInput.Disable();
     }
-
 }
