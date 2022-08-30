@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerRunningState : PlayerBaseState
+public class PlayerDashState : PlayerBaseState
 {
-    public PlayerRunningState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
+    public PlayerDashState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
     }

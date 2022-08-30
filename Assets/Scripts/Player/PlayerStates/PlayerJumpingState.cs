@@ -10,7 +10,6 @@ public class PlayerJumpingState : PlayerBaseState, ISuperState
 
     override public void EnterState()
     {
-        Context.PlayerRB.velocity = new Vector2(Context.PlayerRB.velocity.x, 0f);
         HandleJump();
     }
 
@@ -19,20 +18,24 @@ public class PlayerJumpingState : PlayerBaseState, ISuperState
         CheckSwitchStates();
     }
 
+    public override void FixedUpdateState()
+    {
+
+    }
+
     public override void CheckSwitchStates()
     {
-        if ((!Context.IsJumpPressed && !Context.IsGrounded) || (Context.PlayerRB.velocity.y <= 0 && !Context.IsGrounded))
+        if (!Context.Controller.PlayerInput.Player.Jump.IsPressed() || Context.PlayerRB.velocity.y <= 0)
             SwitchState(Factory.Air());
+        else if (Context.IsGrounded)
+            SwitchState(Factory.Grounded());
+        else if (Context.CurrentClimbing)
+            SwitchState(Factory.Climb());
     }
 
     public void InitializeSubState()
     {
-        if (Context.IsRunPressed)
-            SetSubState(Factory.Run());
-        else if (Context.IsDodgePressed)
-            SetSubState(Factory.Dodge());
-        else
-            SetSubState(Factory.Idle());
+
     }
 
     public override void ExitState()
@@ -40,9 +43,9 @@ public class PlayerJumpingState : PlayerBaseState, ISuperState
        
     }
 
-    //  Functions
-    void HandleJump()
+    private void HandleJump()
     {
-        Context.PlayerRB.AddForce(Vector2.up * Context.JumpForce, ForceMode2D.Impulse);
+        Context.PlayerRB.velocity = new Vector3(Context.PlayerRB.velocity.x, 0, Context.PlayerRB.velocity.z);
+        Context.PlayerRB.AddForce(Vector2.up * Context.PlayerStats.PlayerJumpForce, ForceMode.Impulse);
     }
 }

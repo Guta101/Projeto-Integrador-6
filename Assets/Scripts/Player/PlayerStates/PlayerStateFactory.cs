@@ -1,39 +1,65 @@
+using System.Collections.Generic;
+
 public class PlayerStateFactory
 {
-    PlayerStateManager _context;
+    enum PlayerStates
+    {
+        idle,
+        run,
+        dash,
+        grounded,
+        jump,
+        air,
+        climb
+    }
+
+    PlayerStateManager context;
+    Dictionary<PlayerStates, PlayerBaseState> _states = new Dictionary<PlayerStates, PlayerBaseState>();
 
     public PlayerStateFactory(PlayerStateManager currentContext)
     {
-        _context = currentContext;
+        context = currentContext;
+        _states[PlayerStates.idle] = new PlayerIdleState(context, this);
+        _states[PlayerStates.run] = new PlayerRunningState(context, this);
+        _states[PlayerStates.jump] = new PlayerJumpingState(context, this);
+        _states[PlayerStates.grounded] = new PlayerGroundedState(context, this);
+        _states[PlayerStates.air] = new PlayerAirState(context, this);
+        _states[PlayerStates.dash] = new PlayerDashState(context, this);
+        _states[PlayerStates.climb] = new PlayerClimbState(context, this);
     }
 
     public PlayerBaseState Idle()
     {
-        return new PlayerIdleState(_context, this);
+        return _states[PlayerStates.idle];
     }
 
     public PlayerBaseState Run()
     {
-        return new PlayerRunningState(_context, this);
+        return _states[PlayerStates.run];
     }
 
-    public PlayerBaseState Dodge()
+    public PlayerBaseState Jump()
     {
-        return new PlayerDodgingState(_context, this);
+        return _states[PlayerStates.jump];
     }
 
-    public PlayerJumpingState Jump()
+    public PlayerBaseState Grounded()
     {
-        return new PlayerJumpingState(_context, this);
+        return _states[PlayerStates.grounded];
     }
 
-    public PlayerGroundedState Grounded()
+    public PlayerBaseState Air()
     {
-        return new PlayerGroundedState(_context, this);
+        return _states[PlayerStates.air];
     }
 
-    public PlayerAirState Air()
+    public PlayerBaseState Dash()
     {
-        return new PlayerAirState(_context, this);
+        return _states[PlayerStates.dash];
+    }
+
+    public PlayerBaseState Climb()
+    {
+        return _states[PlayerStates.climb];
     }
 }

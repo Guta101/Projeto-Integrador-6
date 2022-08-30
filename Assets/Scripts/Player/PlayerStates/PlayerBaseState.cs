@@ -8,16 +8,10 @@ public abstract class PlayerBaseState
     protected PlayerBaseState CurrentSuperState { get; set; }
     protected bool IsSuperState { get; set; } = false;
 
-    //  What should happen when the state enters
     public abstract void EnterState();
-
-    //  What should be executed in an update
     public abstract void UpdateState();
-
-    //  What should be executed at the end of the state
+    public abstract void FixedUpdateState();
     public abstract void ExitState();
-
-    //  Check if the states should switch
     public abstract void CheckSwitchStates();
 
     public PlayerBaseState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory)
@@ -32,6 +26,13 @@ public abstract class PlayerBaseState
         UpdateState();
         if(CurrentSubState != null)
             CurrentSubState.UpdateState();
+    }
+
+    public void FixedUpdateStates()
+    {
+        FixedUpdateState();
+        if (CurrentSubState != null)
+            CurrentSubState.FixedUpdateState();
     }
 
     //  Switch states with another one
