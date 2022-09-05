@@ -6,18 +6,14 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     //  Main Stats
-    [SerializeField]
-    private float _maxHP;
+    [SerializeField] private float _maxHP;
     private float _extraMaxHP;
-    [SerializeField]
-    private float _currentHP;
+    [SerializeField] private float _currentHP;
 
     //  Movement
-    [SerializeField]
-    private float _playerSpeed;
+    [SerializeField] private float _playerSpeed;
     private float _extraPlayerSpeed;
-    [SerializeField]
-    private float _playerJumpForce;
+    [SerializeField] private float _playerJumpForce;
     private float _extraPlayerJumpForce;
 
     //  Get & Set

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerGroundCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundRadius;
+    public bool IsGrounded { get; private set; }
 
     // Update is called once per frame
     void Update()
     {
-        
+        IsGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundLayer);
     }
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerJumpingState : PlayerBaseState, ISuperState
 {
+    private float _fallAcc = 50f;
+
     public PlayerJumpingState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         IsSuperState = true;
@@ -20,7 +22,7 @@ public class PlayerJumpingState : PlayerBaseState, ISuperState
 
     public override void FixedUpdateState()
     {
-
+        Gravity();
     }
 
     public override void CheckSwitchStates()
@@ -47,5 +49,11 @@ public class PlayerJumpingState : PlayerBaseState, ISuperState
     {
         Context.PlayerRB.velocity = new Vector3(Context.PlayerRB.velocity.x, 0, Context.PlayerRB.velocity.z);
         Context.PlayerRB.AddForce(Vector2.up * Context.PlayerStats.PlayerJumpForce, ForceMode.Impulse);
+    }
+
+    private void Gravity()
+    {
+        float _newAcc = Context.PlayerRB.velocity.y + _fallAcc;
+        Context.PlayerRB.AddForce(Vector3.down * (Context.PlayerRB.velocity.y + _newAcc) / 2, ForceMode.Acceleration);
     }
 }

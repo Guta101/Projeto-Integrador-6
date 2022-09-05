@@ -6,9 +6,14 @@ using UnityEngine;
 public class PlayerStateManager : MonoBehaviour
 {
     //  Reference variables
-    public PlayerController Controller { get; private set; }
-    public Rigidbody PlayerRB { private set; get; }
-    public PlayerStats PlayerStats;
+    [SerializeField] private PlayerController controller;
+    [SerializeField] private Rigidbody playerRB;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private PlayerGroundCheck groundCheck;
+    public PlayerController Controller { get { return controller; } }
+    public Rigidbody PlayerRB { get { return playerRB; } }
+    public PlayerStats PlayerStats { get { return playerStats; } }
+    public PlayerGroundCheck GroundCheck { get { return groundCheck; } }
 
     //  State variables
     public PlayerBaseState CurrentState { get; set; }
@@ -32,11 +37,18 @@ public class PlayerStateManager : MonoBehaviour
 
     void Update()
     {
+        IsGrounded = GroundCheck.IsGrounded;
+        CheckCanJump();
         CurrentState.UpdateStates();
     }
 
     void FixedUpdate()
     {
         CurrentState.FixedUpdateStates();
+    }
+
+    private void CheckCanJump()
+    {
+        CanJump = IsGrounded ? true : false;
     }
 }
