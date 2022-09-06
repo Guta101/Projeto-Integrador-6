@@ -24,7 +24,22 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        
+        if (CurrentSuperState == Factory.Air())
+        {
+            if (Context.Controller.PlayerInput.Player.Move.IsPressed())
+                SwitchState(Factory.Run());
+        }
+        else if (CurrentSuperState == Factory.Grounded())
+        {
+            if (Context.Controller.PlayerInput.Player.Move.IsPressed())
+                SwitchState(Factory.Run());
+            else if (Context.Controller.PlayerInput.Player.Dash.IsPressed())
+                SwitchState(Factory.Dash());
+        }
+        else if (CurrentSuperState == Factory.Climb())
+        {
+
+        }
     }
 
     public override void ExitState()

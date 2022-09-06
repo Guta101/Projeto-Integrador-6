@@ -19,9 +19,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerBaseState CurrentState { get; set; }
     private PlayerStateFactory states;
 
-    //  Grounded & Jump
+    //  Grounded
     public bool IsGrounded { get; private set; }
-    public bool CanJump { get; private set; }
 
     //  Climb
     public GameObject CurrentClimbing { get; private set; }
@@ -38,17 +37,11 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         IsGrounded = GroundCheck.IsGrounded;
-        CheckCanJump();
         CurrentState.UpdateStates();
     }
 
     void FixedUpdate()
     {
         CurrentState.FixedUpdateStates();
-    }
-
-    private void CheckCanJump()
-    {
-        CanJump = IsGrounded ? true : false;
     }
 }

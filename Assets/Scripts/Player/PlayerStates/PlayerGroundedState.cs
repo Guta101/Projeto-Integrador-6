@@ -15,27 +15,30 @@ public class PlayerGroundedState : PlayerBaseState, ISuperState
 
     override public void UpdateState()
     {
-        CheckSwitchStates();
+        
     }
 
     public override void FixedUpdateState()
     {
-
+        CheckSwitchStates();
     }
 
     public override void CheckSwitchStates()
     {
         if (!Context.IsGrounded)
             SwitchState(Factory.Air());
-        else if (Context.CanJump && Context.Controller.PlayerInput.Player.Jump.IsPressed())
-            SwitchState(Factory.Jump());
         else if (Context.CurrentClimbing)
             SwitchState(Factory.Climb());
     }
 
     public void InitializeSubState()
     {
-
+        if (Context.Controller.PlayerInput.Player.Move.IsPressed())
+            SetSubState(Factory.Run());
+        else if (!Context.Controller.PlayerInput.Player.Move.IsPressed())
+            SetSubState(Factory.Idle());
+        else if (Context.Controller.PlayerInput.Player.Dash.IsPressed())
+            SetSubState(Factory.Dash());
     }
 
     public override void ExitState()

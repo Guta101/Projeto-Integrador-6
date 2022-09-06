@@ -16,8 +16,6 @@ public class PlayerClimbState : PlayerBaseState, ISuperState
             SwitchState(Factory.Grounded());
         else if (!Context.CurrentClimbing)
             SwitchState(Factory.Air());
-        else if (Context.CanJump && Context.Controller.PlayerInput.Player.Jump.IsPressed())
-            SwitchState(Factory.Jump());
     }
 
     public override void EnterState()

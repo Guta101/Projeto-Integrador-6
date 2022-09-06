@@ -17,11 +17,12 @@ public class PlayerAirState : PlayerBaseState, ISuperState
 
     override public void UpdateState()
     {
-        CheckSwitchStates();
+        
     }
 
     public override void FixedUpdateState()
     {
+        CheckSwitchStates();
         Gravity();
     }
 
@@ -29,15 +30,16 @@ public class PlayerAirState : PlayerBaseState, ISuperState
     {
         if (Context.IsGrounded)
             SwitchState(Factory.Grounded());
-        else if (Context.CanJump && Context.Controller.PlayerInput.Player.Jump.IsPressed())
-            SwitchState(Factory.Jump());
         else if (Context.CurrentClimbing)
             SwitchState(Factory.Climb());
     }
 
     public void InitializeSubState()
     {
-
+        if (!Context.Controller.PlayerInput.Player.Move.IsPressed())
+            SetSubState(Factory.Idle());
+        if (Context.Controller.PlayerInput.Player.Move.IsPressed())
+            SetSubState(Factory.Run());
     }
 
     public override void ExitState()

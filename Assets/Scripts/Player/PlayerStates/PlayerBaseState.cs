@@ -4,7 +4,7 @@ public abstract class PlayerBaseState
 {
     protected PlayerStateManager Context { get; set; }
     protected PlayerStateFactory Factory { get; set; }
-    protected PlayerBaseState CurrentSubState { get; set; }
+    public PlayerBaseState CurrentSubState { get; set; }
     protected PlayerBaseState CurrentSuperState { get; set; }
     protected bool IsSuperState { get; set; } = false;
 
@@ -45,7 +45,10 @@ public abstract class PlayerBaseState
         Debug.Log(newState.ToString());
 
         if (IsSuperState)
+        {
+            newState.SetSubState(CurrentSubState);
             Context.CurrentState = newState;
+        }
         else if (CurrentSuperState != null)
             CurrentSuperState.SetSubState(newState);
     }
