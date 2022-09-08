@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerRunningState : PlayerBaseState
 {
     private float _acceleration = 13f;
-    private float _decceleration = 14f;
     private float _velPower = 0.96f;
 
     public PlayerRunningState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
@@ -55,10 +54,8 @@ public class PlayerRunningState : PlayerBaseState
     {
         Vector2 targetSpeed = Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>() * Context.PlayerStats.PlayerSpeed;
         Vector2 speedDif = targetSpeed - new Vector2(Context.PlayerRB.velocity.x, Context.PlayerRB.velocity.z);
-        float accelrateY = (Mathf.Abs(targetSpeed.y) > 0.01f) ? _acceleration : _decceleration;
-        float accelrateX = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
-        float movementY = Mathf.Pow(Mathf.Abs(speedDif.y) * accelrateY, _velPower) * Mathf.Sign(speedDif.y);
-        float movementX = Mathf.Pow(Mathf.Abs(speedDif.x) * accelrateX, _velPower) * Mathf.Sign(speedDif.x);
+        float movementY = Mathf.Pow(Mathf.Abs(speedDif.y) * _acceleration, _velPower) * Mathf.Sign(speedDif.y);
+        float movementX = Mathf.Pow(Mathf.Abs(speedDif.x) * _acceleration, _velPower) * Mathf.Sign(speedDif.x);
         Context.PlayerRB.AddForce(new Vector3(movementX, 0, movementY));
     }
 }

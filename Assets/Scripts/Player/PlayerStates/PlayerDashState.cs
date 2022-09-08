@@ -41,4 +41,9 @@ public class PlayerDashState : PlayerBaseState
     {
 
     }
+
+    private void Dash()
+    {
+
+    }
 }

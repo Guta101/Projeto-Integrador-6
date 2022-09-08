@@ -13,10 +13,15 @@ public class PlayerInventory : ScriptableObject
     //  List of items in inventory
     public List<ItemBase> Items = new List<ItemBase>();
 
-    public void AddItem(ItemBase item)
+    public bool AddItem(ItemBase item)
     {
         if (Items.Count < maxCapacity)
+        {
             Items.Add(item);
+            return true;
+        }
+        else
+            return false;
     }
 
     public void RemoveItem(ItemBase item)

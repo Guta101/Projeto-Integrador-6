@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
+    private float _decceleration = 14f;
+    private float _velPower = 0.96f;
+
     public PlayerIdleState(PlayerStateManager currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
@@ -19,7 +22,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void FixedUpdateState()
     {
-
+        Friction();
     }
 
     public override void CheckSwitchStates()
@@ -45,5 +48,14 @@ public class PlayerIdleState : PlayerBaseState
     public override void ExitState()
     {
         
+    }
+
+    private void Friction()
+    {
+        Vector2 targetSpeed = Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>() * Context.PlayerStats.PlayerSpeed;
+        Vector2 speedDif = targetSpeed - new Vector2(Context.PlayerRB.velocity.x, Context.PlayerRB.velocity.z);
+        float movementY = Mathf.Pow(Mathf.Abs(speedDif.y) * _decceleration, _velPower) * Mathf.Sign(speedDif.y);
+        float movementX = Mathf.Pow(Mathf.Abs(speedDif.x) * _decceleration, _velPower) * Mathf.Sign(speedDif.x);
+        Context.PlayerRB.AddForce(new Vector3(movementX, 0, movementY));
     }
 }

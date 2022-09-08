@@ -15,5 +15,4 @@ MonoBehaviour:
   maxCapacity: 10
   PlayerParts:
   - {fileID: 11400000, guid: c1950f4247526d44db1b3fab47014cc1, type: 2}
-  Items:
-  - {fileID: 11400000, guid: 97b869a34ec84a646b3f50819c0a55b0, type: 2}
+  Items: []
