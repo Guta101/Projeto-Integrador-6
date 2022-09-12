@@ -13,13 +13,16 @@ public class PlayerStats : ScriptableObject
     //  Movement
     [SerializeField] private float _playerSpeed;
     private float _extraPlayerSpeed;
-    [SerializeField] private float _playerJumpForce;
-    private float _extraPlayerJumpForce;
+    [SerializeField] private float _dashCooldown;
+    private float _extraDashCooldown;
+    [SerializeField] private float _dashTime;
+    private float _extraDashTime;
 
     //  Get & Set
     public float PlayerSpeed { get { return _playerSpeed + _extraPlayerSpeed; } private set { _playerSpeed = value; } }
     public float MaxHP { get { return _maxHP + _extraMaxHP; } private set { _maxHP = value; } }
-    public float PlayerJumpForce { get { return _playerJumpForce + _extraPlayerJumpForce; } private set { _playerJumpForce = value; } }
+    public float DashCooldown { get { return _dashCooldown + _extraDashCooldown; } private set { _dashCooldown = value; } }
+    public float DashTime { get { return _dashTime + _extraDashTime; } private set { _dashTime = value; } }
 
     //  Increase & Decrease
     public void AddMaxHP(float extraHP)
@@ -40,12 +43,22 @@ public class PlayerStats : ScriptableObject
         _extraPlayerSpeed -= extraSpeed;
     }
 
-    public void AddPlayerJumpForce(float extraJumpForce)
+    public void AddDashCooldown(float extraCooldown)
     {
-        _extraPlayerJumpForce += extraJumpForce;
+        _extraDashCooldown += extraCooldown;
     }
-    public void RemovePlayerJumpForce(float extraJumpForce)
+    public void RemoveDashCooldown(float extraCooldown)
     {
-        _extraPlayerJumpForce -= extraJumpForce;
+        _extraDashCooldown -= extraCooldown;
     }
+
+    public void AddDashTime(float extraDashTime)
+    {
+        _extraDashTime += extraDashTime;
+    }
+    public void RemoveDashTime(float extraDashTime)
+    {
+        _extraDashTime -= extraDashTime;
+    }
+
 }

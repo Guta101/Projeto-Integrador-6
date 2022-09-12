@@ -5,9 +5,9 @@ using UnityEngine;
 public class ItemHolder : MonoBehaviour, IInteractible
 {
     [SerializeField] private PlayerInventory inventory;
-    [SerializeField] private ItemBase currentItem;
+    [SerializeField] private ItemInterface currentItem;
 
-    private void Start()
+    private void Awake()
     {
         
     }

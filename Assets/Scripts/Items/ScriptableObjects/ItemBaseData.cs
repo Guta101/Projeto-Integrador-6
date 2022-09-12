@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public abstract class ItemBase : ScriptableObject
+[CreateAssetMenu(menuName = "Items/BasicItemData")]
+public abstract class ItemBaseData : ScriptableObject
 {
     [SerializeField] private int itemID;
     [SerializeField] private string itemName;

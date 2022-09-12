@@ -25,6 +25,9 @@ public class PlayerStateManager : MonoBehaviour
     //  Climb
     public GameObject CurrentClimbing { get; private set; }
 
+    //  Dash Cooldown
+    [SerializeField] public bool CanDash;
+
     //  MonoBehaviour stuff
     void Awake()
     {
@@ -32,6 +35,7 @@ public class PlayerStateManager : MonoBehaviour
         states = new PlayerStateFactory(this);
         CurrentState = states.Grounded();
         CurrentState.EnterState();
+        CanDash = true;
     }
 
     void Update()
@@ -43,5 +47,11 @@ public class PlayerStateManager : MonoBehaviour
     void FixedUpdate()
     {
         CurrentState.FixedUpdateStates();
+    }
+
+    public IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(PlayerStats.DashCooldown);
+        CanDash = true;
     }
 }

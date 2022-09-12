@@ -36,7 +36,7 @@ public class PlayerIdleState : PlayerBaseState
         {
             if (Context.Controller.PlayerInput.Player.Move.IsPressed())
                 SwitchState(Factory.Run());
-            else if (Context.Controller.PlayerInput.Player.Dash.IsPressed())
+            else if (Context.Controller.PlayerInput.Player.Dash.IsPressed() && Context.CanDash)
                 SwitchState(Factory.Dash());
         }
         else if (CurrentSuperState == Factory.Climb())

@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerInventory inventory;
+    [SerializeField] private PlayerController controller;
+
+    private void OnEnable()
+    {
+        controller.PlayerInput.Player.Fire.performed += _ => AttackHandler();
+    }
+
+    private void OnDisable()
+    {
+        controller.PlayerInput.Player.Fire.performed += _ => AttackHandler();
+    }
+
+    private void AttackHandler()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Attack(ItemWeaponData weapon)
     {
         
     }

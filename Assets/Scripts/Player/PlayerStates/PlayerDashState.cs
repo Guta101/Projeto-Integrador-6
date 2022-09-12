@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerDashState : PlayerBaseState
@@ -9,17 +10,17 @@ public class PlayerDashState : PlayerBaseState
 
     override public void EnterState()
     {
-
+        Context.StartCoroutine(DashTimer());
     }
 
     override public void UpdateState()
     {
-        CheckSwitchStates();
+
     }
 
     public override void FixedUpdateState()
     {
-
+        Dash();
     }
 
     public override void CheckSwitchStates()
@@ -39,11 +40,23 @@ public class PlayerDashState : PlayerBaseState
 
     public override void ExitState()
     {
-
+        Context.CanDash = false;
+        Context.StartCoroutine(Context.DashCooldown());
     }
 
     private void Dash()
     {
-
+        if (Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>().x != 0 || Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>().y != 0)
+            Context.PlayerRB.velocity = new Vector3(Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>().x * 50f, 0, Context.Controller.PlayerInput.Player.Move.ReadValue<Vector2>().y * 50f);
+        else
+            Context.PlayerRB.velocity = new Vector3(Context.transform.forward.x * 50f, 0, Context.transform.forward.y * 50f);
     }
+
+    private IEnumerator DashTimer()
+    {
+        yield return new WaitForSeconds(Context.PlayerStats.DashTime);
+        CheckSwitchStates();
+    }
+
+    
 }

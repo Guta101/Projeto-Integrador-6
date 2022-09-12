@@ -11,9 +11,10 @@ public class PlayerInventory : ScriptableObject
     //  List of equippable parts
     public List<PlayerEquippablePart> PlayerParts = new List<PlayerEquippablePart>();
     //  List of items in inventory
-    public List<ItemBase> Items = new List<ItemBase>();
+    [SerializeReference]
+    public List<ItemInterface> Items = new List<ItemInterface>();
 
-    public bool AddItem(ItemBase item)
+    public bool AddItem(ItemInterface item)
     {
         if (Items.Count < maxCapacity)
         {
@@ -24,17 +25,17 @@ public class PlayerInventory : ScriptableObject
             return false;
     }
 
-    public void RemoveItem(ItemBase item)
+    public void RemoveItem(ItemInterface item)
     {
         Items.Remove(item);
     }
 
-    public void EquipItem(ItemEquip item, PlayerEquippablePart part)
+    public void EquipItem(EquipableInterface item, PlayerEquippablePart part)
     {
         part.Equip(item);
     }
 
-    public void UnequipItem(ItemEquip item, PlayerEquippablePart part)
+    public void UnequipItem(EquipableInterface item, PlayerEquippablePart part)
     {
         part.Equip(item);
     }

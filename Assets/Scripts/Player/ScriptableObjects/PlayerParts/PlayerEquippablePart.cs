@@ -8,15 +8,17 @@ public class PlayerEquippablePart : ScriptableObject
     public string Name;
     public int Amount;
     //  List of items equipped
-    public List<ItemEquip> EquippedItems = new List<ItemEquip>();
+    public List<EquipableInterface> EquippedItems = new List<EquipableInterface>();
 
-    public void Equip(ItemEquip item)
+    public void Equip(EquipableInterface item)
     {
         EquippedItems.Add(item);
+        item.EquipEffect();
     }
 
-    public void Unequip(ItemEquip item)
+    public void Unequip(EquipableInterface item)
     {
         EquippedItems.Remove(item);
+        item.UnequipEffect();
     }
 }

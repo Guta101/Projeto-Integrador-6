@@ -15,4 +15,5 @@ MonoBehaviour:
   _maxHP: 100
   _currentHP: 100
   _playerSpeed: 10
-  _playerJumpForce: 15
+  _dashCooldown: 1
+  _dashTime: 0.05
