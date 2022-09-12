@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Heads:
   - {fileID: 11400000, guid: c1950f4247526d44db1b3fab47014cc1, type: 2}
-  Arms: []
-  Torso: {fileID: 0}
-  Legs: []
-  Hands: []
+  Arms:
+  - {fileID: 11400000, guid: 699a4d8bd9731a443b22937110721623, type: 2}
+  - {fileID: 11400000, guid: 250f5e1faee52e94c99c516d125db02f, type: 2}
+  Torso: {fileID: 11400000, guid: df5d52dfea7f30944ae6d0d5cefb4792, type: 2}
+  Legs:
+  - {fileID: 11400000, guid: fcb40b9ca8504d346883aeeb36217a12, type: 2}
+  - {fileID: 11400000, guid: a0cf5beaa2d16a643a9c822bf4eb8e4e, type: 2}
+  Hands:
+  - {fileID: 11400000, guid: d2e843c1c2b270b49b3a7d0d9c2dd125, type: 2}
+  - {fileID: 11400000, guid: db9e2cf8078aefb4080c217986b8b25d, type: 2}
