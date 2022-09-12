@@ -5,20 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/EquippablePart")]
 public class PlayerEquippablePart : ScriptableObject
 {
-    public string Name;
-    public int Amount;
-    //  List of items equipped
-    public List<EquipableInterface> EquippedItems = new List<EquipableInterface>();
+    //  Item Equipped
+    private EquipableInterface equippedItem;
 
     public void Equip(EquipableInterface item)
     {
-        EquippedItems.Add(item);
+        equippedItem = item;
         item.EquipEffect();
     }
 
-    public void Unequip(EquipableInterface item)
+    public void Unequip()
     {
-        EquippedItems.Remove(item);
-        item.UnequipEffect();
+        equippedItem.UnequipEffect();
+        equippedItem = null;
     }
 }

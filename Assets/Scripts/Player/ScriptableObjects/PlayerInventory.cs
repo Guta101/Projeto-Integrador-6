@@ -9,7 +9,7 @@ public class PlayerInventory : ScriptableObject
     [SerializeField] private int maxCapacity;
 
     //  List of equippable parts
-    public List<PlayerEquippablePart> PlayerParts = new List<PlayerEquippablePart>();
+    public PlayerCurrentParts PlayerCurrentParts;
     //  List of items in inventory
     [SerializeReference]
     public List<ItemInterface> Items = new List<ItemInterface>();
@@ -35,8 +35,8 @@ public class PlayerInventory : ScriptableObject
         part.Equip(item);
     }
 
-    public void UnequipItem(EquipableInterface item, PlayerEquippablePart part)
+    public void UnequipItem(PlayerEquippablePart part)
     {
-        part.Equip(item);
+        part.Unequip();
     }
 }
