@@ -10,7 +10,6 @@ public class InventoryUI : MonoBehaviour
     private void OnEnable()
     {
         GenInventory();
-        Debug.Log(inventory.Items.Count);
     }
 
     private void GenInventory()
