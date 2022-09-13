@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerEquippablePart : ScriptableObject
 {
     //  Item Equipped
-    private EquipableInterface equippedItem;
+    public EquipableInterface equippedItem;
 
     public void Equip(EquipableInterface item)
     {

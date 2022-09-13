@@ -6,10 +6,16 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private InventorySlot itemSlot;
     [SerializeField] private PlayerInventory inventory;
+    [SerializeField] private List<InventorySlot> inventorySlots;
 
     private void OnEnable()
     {
         GenInventory();
+    }
+
+    private void OnDisable()
+    {
+        DestroyInventory();
     }
 
     private void GenInventory()
@@ -18,6 +24,22 @@ public class InventoryUI : MonoBehaviour
         {
             InventorySlot newSlot = Instantiate(itemSlot, transform);
             newSlot.Init(item);
+            inventorySlots.Add(newSlot);
         }
+    }
+
+    private void DestroyInventory()
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            Destroy(slot.gameObject);
+        }
+        inventorySlots.Clear();
+    }
+
+    public void UpdateInventory()
+    {
+        DestroyInventory();
+        GenInventory();
     }
 }

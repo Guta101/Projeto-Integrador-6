@@ -17,7 +17,8 @@ MonoBehaviour:
   Arms:
   - {fileID: 11400000, guid: 699a4d8bd9731a443b22937110721623, type: 2}
   - {fileID: 11400000, guid: 250f5e1faee52e94c99c516d125db02f, type: 2}
-  Torso: {fileID: 11400000, guid: df5d52dfea7f30944ae6d0d5cefb4792, type: 2}
+  Torso:
+  - {fileID: 11400000, guid: df5d52dfea7f30944ae6d0d5cefb4792, type: 2}
   Legs:
   - {fileID: 11400000, guid: fcb40b9ca8504d346883aeeb36217a12, type: 2}
   - {fileID: 11400000, guid: a0cf5beaa2d16a643a9c822bf4eb8e4e, type: 2}

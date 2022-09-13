@@ -13,6 +13,34 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   maxCapacity: 10
-  PlayerParts:
-  - {fileID: 11400000, guid: c1950f4247526d44db1b3fab47014cc1, type: 2}
-  - {fileID: 11400000, guid: db9e2cf8078aefb4080c217986b8b25d, type: 2}
+  PlayerCurrentParts: {fileID: 11400000, guid: da21802f73337114290391a759d152e6, type: 2}
+  Items:
+  - rid: 7287121371091959810
+  - rid: 7287121371091959811
+  - rid: 7287121371091959812
+  - rid: 7287121371091959813
+  itemChange: {fileID: 11400000, guid: 3a62d1191e4256a42894557b10f5b073, type: 2}
+  itemEquip: {fileID: 11400000, guid: f299c555ac3ca7548af96b8026f9d1b4, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 7287121371091959810
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 0
+        _weaponData: {fileID: 11400000, guid: 26d9457a28cb84d49bff800f8202ad7c, type: 2}
+    - rid: 7287121371091959811
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 0
+        _weaponData: {fileID: 11400000, guid: 26d9457a28cb84d49bff800f8202ad7c, type: 2}
+    - rid: 7287121371091959812
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 0
+        _weaponData: {fileID: 11400000, guid: 26d9457a28cb84d49bff800f8202ad7c, type: 2}
+    - rid: 7287121371091959813
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 0
+        _weaponData: {fileID: 11400000, guid: 26d9457a28cb84d49bff800f8202ad7c, type: 2}
