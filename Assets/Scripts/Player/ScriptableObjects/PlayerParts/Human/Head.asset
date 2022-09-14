@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59ba01ce07cf4f4cbfd3314cb1417b7, type: 3}
   m_Name: Head
   m_EditorClassIdentifier: 
-  Name: Head
-  Amount: 1
+  partIcon: {fileID: 1002214310, guid: 6acb44ac70d05ff4f8dafa27c6362254, type: 3}
