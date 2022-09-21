@@ -17,11 +17,17 @@ public class EquipWindow : MonoBehaviour
 
     public void GenEquipButtons()
     {
-        Debug.Log(item.ItemData);
-        foreach (PlayerEquippablePart part in item.ItemData.EquippableParts)
-        {
-            EquipButton button = Instantiate(equipButton, windowTransform);
-            button.Init(part, item);
-        }
+        if (item is WeaponInterface)
+            foreach (PlayerEquippablePart part in ((WeaponInterface)item).ItemData.EquippableParts)
+                {
+                    EquipButton button = Instantiate(equipButton, windowTransform);
+                    button.Init(part, item);
+                }
+        else if (item is EquipableInterface)
+            foreach (PlayerEquippablePart part in item.ItemData.EquippableParts)
+                {
+                    EquipButton button = Instantiate(equipButton, windowTransform);
+                    button.Init(part, item);
+                }
     }
 }
