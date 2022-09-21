@@ -19,6 +19,8 @@ MonoBehaviour:
   EquippableParts:
   - {fileID: 11400000, guid: c1950f4247526d44db1b3fab47014cc1, type: 2}
   baseDamage: 10
+  bulletSpeed: 10
   attackSpeed: 0
   reloadSpeed: 0
-  magSize: 0
+  magSize: 6
+  attack: {fileID: 9203956041595497923, guid: bc51a885180ed174b86458216eda0d17, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponHolder : MonoBehaviour, IInteractible
 {
     [SerializeField] private PlayerInventory inventory;
-    [SerializeField] private WeaponInterface currentWeapon;
+    private WeaponInterface currentWeapon;
     [SerializeField] private WeaponsList weapons;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class WeaponHolder : MonoBehaviour, IInteractible
 
     private void Randomize()
     {
-        int index = Random.Range(0, weapons.weaponsList.Count);
+        int index = Random.Range(0, weapons.weaponsList.Count - 1);
         currentWeapon = new BasicShooter(weapons.weaponsList[index]);
     }
 }

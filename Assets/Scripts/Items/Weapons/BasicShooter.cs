@@ -7,18 +7,24 @@ public class BasicShooter : WeaponInterface
 {
     public BasicShooter(ItemWeaponData weaponData)
     {
-        WeaponData = weaponData;
+        ItemData = weaponData;
         CurrentAmmo = weaponData.MagSize;
     }
 
-    public override void Attack()
+    public override void Attack(Transform attackPoint)
     {
-        Debug.Log("Bang! " + WeaponData.BaseDamage + " Damage!");
+        if (CurrentAmmo > 0)
+        {
+            BasicAttack oAttack = GameObject.Instantiate(ItemData.Attack, attackPoint.position, attackPoint.rotation);
+            oAttack.Init(attackPoint.position, ItemData);
+            CurrentAmmo--;
+        }
+        
     }
 
     public override void Reload()
     {
-        
+        CurrentAmmo = ItemData.MagSize;
     }
 
     public override void EquipEffect()

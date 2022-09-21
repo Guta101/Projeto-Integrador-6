@@ -15,14 +15,28 @@ MonoBehaviour:
   maxCapacity: 10
   PlayerCurrentParts: {fileID: 11400000, guid: da21802f73337114290391a759d152e6, type: 2}
   Items:
-  - rid: 7287121371091959814
+  - rid: 7287121531675082754
+  - rid: 7287121531675082755
+  - rid: 7287121531675082756
+  - rid: 7287121531675082757
   itemChange: {fileID: 11400000, guid: 3a62d1191e4256a42894557b10f5b073, type: 2}
   itemEquip: {fileID: 11400000, guid: f299c555ac3ca7548af96b8026f9d1b4, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 7287121371091959814
+    - rid: 7287121531675082754
       type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
       data:
-        _currentAmmo: 0
-        _weaponData: {fileID: 11400000, guid: 26d9457a28cb84d49bff800f8202ad7c, type: 2}
+        _currentAmmo: 6
+    - rid: 7287121531675082755
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 6
+    - rid: 7287121531675082756
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 6
+    - rid: 7287121531675082757
+      type: {class: BasicShooter, ns: , asm: Assembly-CSharp}
+      data:
+        _currentAmmo: 6
