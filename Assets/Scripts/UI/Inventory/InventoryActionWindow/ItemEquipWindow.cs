@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipWindow : MonoBehaviour
+public class ItemEquipWindow : MonoBehaviour
 {
+
     [SerializeField] private EquipButton equipButton;
     [SerializeField] private Transform windowTransform;
 

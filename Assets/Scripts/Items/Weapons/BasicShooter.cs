@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class BasicShooter : WeaponInterface
 {
     public BasicShooter(ItemWeaponData weaponData)
@@ -19,7 +18,6 @@ public class BasicShooter : WeaponInterface
             oAttack.Init(attackPoint.position, ItemData);
             CurrentAmmo--;
         }
-        
     }
 
     public override void Reload()

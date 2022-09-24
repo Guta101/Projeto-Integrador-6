@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5872362275299763324}
   - component: {fileID: 5872362275299763299}
   - component: {fileID: 642825557980726513}
+  - component: {fileID: 1069518323399281526}
+  - component: {fileID: 1621271983907639598}
   m_Layer: 5
   m_Name: ItemActionMenu
   m_TagString: Untagged
@@ -131,5 +133,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c907f8d4ee7b341ae77c7bba914323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  part: {fileID: 0}
+  item:
+    rid: -2
   equipWindow: {fileID: 4456735059035868431, guid: 78b04e16ca226c84682d4a03f0f65302, type: 3}
   dropButton: {fileID: 6130136025503604922, guid: b8ebff2a2168beb4cba76c11fc94a56c, type: 3}
+  unequipButton: {fileID: 6512478052543840908, guid: 51083ec3271849645906567b214f14b5, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1069518323399281526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872362275299763297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5408d71e28736134b9f7e2f91dc9a356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 11400000, guid: fda0eab651143ab418b9170b6cc3c9bc, type: 2}
+  isMouseOver: 0
+--- !u!114 &1621271983907639598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872362275299763297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899e009ff7fba144aa7a40425ea2ea49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 24eb2f8e14f4aaa499222060afed99c1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1069518323399281526}
+        m_TargetAssemblyTypeName: ContextMenuCloser, Assembly-CSharp
+        m_MethodName: DestroyWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

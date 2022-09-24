@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    private WeaponInterface weapon;
+    [SerializeReference] private WeaponInterface weapon;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private WeaponsList weapons;
 

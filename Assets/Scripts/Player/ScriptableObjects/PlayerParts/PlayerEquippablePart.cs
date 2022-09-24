@@ -10,17 +10,6 @@ public class PlayerEquippablePart : ScriptableObject
     public Sprite PartIcon { get { return partIcon; } private set { partIcon = value; } }
 
     //  Item Equipped
-    public EquipableInterface equippedItem;
-
-    public void Equip(EquipableInterface item)
-    {
-        equippedItem = item;
-        item.EquipEffect();
-    }
-
-    public void Unequip()
-    {
-        equippedItem.UnequipEffect();
-        equippedItem = null;
-    }
+    [SerializeReference] private EquipableInterface equippedItem;
+    public EquipableInterface EquippedItem { get; set; }
 }

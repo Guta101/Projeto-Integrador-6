@@ -13,6 +13,7 @@ public class EquipmentUI : MonoBehaviour
         Leg
     }
 
+    [SerializeField] private Transform canvasTransform;
     [SerializeField] private PlayerInventory inventory;
     [SerializeField] private EquipmentSlot equipSlot;
     [SerializeField] private PartType partType;
@@ -36,7 +37,7 @@ public class EquipmentUI : MonoBehaviour
                 foreach (PlayerEquippablePart part in inventory.PlayerCurrentParts.Heads)
                 {
                     EquipmentSlot newSlot = Instantiate(equipSlot, transform);
-                    newSlot.Init(part);
+                    newSlot.Init(part, canvasTransform);
                     currentSlots.Add(newSlot);
                 }
                 break;
@@ -44,7 +45,7 @@ public class EquipmentUI : MonoBehaviour
                 foreach (PlayerEquippablePart part in inventory.PlayerCurrentParts.Arms)
                 {
                     EquipmentSlot newSlot = Instantiate(equipSlot, transform);
-                    newSlot.Init(part);
+                    newSlot.Init(part, canvasTransform);
                     currentSlots.Add(newSlot);
                 }
                 break;
@@ -52,7 +53,7 @@ public class EquipmentUI : MonoBehaviour
                 foreach (PlayerEquippablePart part in inventory.PlayerCurrentParts.Hands)
                 {
                     EquipmentSlot newSlot = Instantiate(equipSlot, transform);
-                    newSlot.Init(part);
+                    newSlot.Init(part, canvasTransform);
                     currentSlots.Add(newSlot);
                 }
                 break;
@@ -60,7 +61,7 @@ public class EquipmentUI : MonoBehaviour
                 foreach (PlayerEquippablePart part in inventory.PlayerCurrentParts.Torso)
                 {
                     EquipmentSlot newSlot = Instantiate(equipSlot, transform);
-                    newSlot.Init(part);
+                    newSlot.Init(part, canvasTransform);
                     currentSlots.Add(newSlot);
                 }
                 break;
@@ -68,12 +69,11 @@ public class EquipmentUI : MonoBehaviour
                 foreach (PlayerEquippablePart part in inventory.PlayerCurrentParts.Legs)
                 {
                     EquipmentSlot newSlot = Instantiate(equipSlot, transform);
-                    newSlot.Init(part);
+                    newSlot.Init(part, canvasTransform);
                     currentSlots.Add(newSlot);
                 }
                 break;
         }
-   
     }
 
     private void DestroyEquipment()

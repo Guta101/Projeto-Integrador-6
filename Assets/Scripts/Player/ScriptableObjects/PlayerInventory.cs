@@ -37,13 +37,19 @@ public class PlayerInventory : ScriptableObject
 
     public void EquipItem(EquipableInterface item, PlayerEquippablePart part)
     {
-        part.Equip(item);
+        RemoveItem(item);
+        if (part.EquippedItem != null)
+            UnequipItem(part);
+        part.EquippedItem = item;
+        part.EquippedItem.EquipEffect();
         itemEquip.Raise();
     }
 
     public void UnequipItem(PlayerEquippablePart part)
     {
-        part.Unequip();
+        AddItem(part.EquippedItem);
+        part.EquippedItem.UnequipEffect();
+        part.EquippedItem = null;
         itemEquip.Raise();
     }
 }

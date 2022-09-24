@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    [SerializeField] private Transform canvasTransform;
     [SerializeField] private InventorySlot itemSlot;
     [SerializeField] private PlayerInventory inventory;
     [SerializeField] private List<InventorySlot> inventorySlots;
@@ -23,7 +24,7 @@ public class InventoryUI : MonoBehaviour
         foreach (ItemInterface item in inventory.Items)
         {
             InventorySlot newSlot = Instantiate(itemSlot, transform);
-            newSlot.Init(item);
+            newSlot.Init(item, canvasTransform);
             inventorySlots.Add(newSlot);
         }
     }
