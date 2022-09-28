@@ -6,7 +6,7 @@ public class ItemHolder : MonoBehaviour, IInteractible
 {
     [SerializeField] private PlayerInventory inventory;
     [SerializeReference] private ItemInterface currentItem;
-    [SerializeField] private WeaponsList weapons;
+    [SerializeField] private EquipablesList equipables;
 
     private void Awake()
     {
@@ -21,7 +21,9 @@ public class ItemHolder : MonoBehaviour, IInteractible
 
     private void Randomize()
     {
-        int index = Random.Range(0, weapons.weaponsList.Count - 1);
-        currentItem = new BasicShooter(weapons.weaponsList[index]);
+        int index = Random.Range(0, equipables.equipablesList.Count - 1);
+        currentItem = new EquipableStatBoost(equipables.equipablesList[index]);
+        currentItem.ItemData = equipables.equipablesList[index];
+        Debug.Log(currentItem.ItemData);
     }
 }

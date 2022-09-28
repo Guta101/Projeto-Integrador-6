@@ -10,14 +10,18 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnEnable()
     {
-        controller.PlayerInput.Player.Fire.performed += _ => AttackHandler();
         controller.PlayerInput.Player.Reload.performed += _ => ReloadHandler();
     }
 
     private void OnDisable()
     {
-        controller.PlayerInput.Player.Fire.performed += _ => AttackHandler();
         controller.PlayerInput.Player.Reload.performed -= _ => ReloadHandler();
+    }
+
+    private void Update()
+    {
+        if (controller.PlayerInput.Player.Fire.IsPressed())
+            AttackHandler();
     }
 
     private void AttackHandler()

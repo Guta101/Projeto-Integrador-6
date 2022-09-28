@@ -17,10 +17,11 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isQuest: 0
   EquippableParts:
-  - {fileID: 11400000, guid: c1950f4247526d44db1b3fab47014cc1, type: 2}
-  baseDamage: 10
-  bulletSpeed: 10
-  attackSpeed: 0
-  reloadSpeed: 0
+  - {fileID: 11400000, guid: db9e2cf8078aefb4080c217986b8b25d, type: 2}
+  - {fileID: 11400000, guid: d2e843c1c2b270b49b3a7d0d9c2dd125, type: 2}
+  baseDamage: 25
+  bulletSpeed: 25
+  attackSpeed: 1
+  reloadSpeed: 2
   magSize: 6
   attack: {fileID: 9203956041595497923, guid: bc51a885180ed174b86458216eda0d17, type: 3}

@@ -378,7 +378,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4456735059035868431}
-        m_TargetAssemblyTypeName: EquipWindow, Assembly-CSharp
+        m_TargetAssemblyTypeName: ItemEquipWindow, Assembly-CSharp
         m_MethodName: GenEquipButtons
         m_Mode: 1
         m_Arguments:

@@ -16,4 +16,8 @@ MonoBehaviour:
   _currentHP: 100
   _playerSpeed: 10
   _dashCooldown: 1
-  _dashTime: 0.05
+  _dashDuration: 0.05
+  extraMaxHP: {fileID: 11400000, guid: ce64af5373b14f04182160c9104b6e6a, type: 2}
+  extraPlayerSpeed: {fileID: 11400000, guid: 00cf4ae202d60c646b0f53d344fb4124, type: 2}
+  extraDashCooldown: {fileID: 11400000, guid: 70a74da0588a4bd47a9782635aa4256a, type: 2}
+  extraDashDuration: {fileID: 11400000, guid: 7d9220702a4a694468b1cd3367cd7bc8, type: 2}

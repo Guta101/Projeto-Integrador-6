@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5821270609031521747}
   - component: {fileID: 5821270609031521744}
   - component: {fileID: 1932674545039084354}
+  - component: {fileID: 1452898447904966331}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -135,6 +136,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1452898447904966331}
+        m_TargetAssemblyTypeName: CloseWindow, Assembly-CSharp
+        m_MethodName: CloseWindows
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1932674545039084354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,10 +160,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed06e1dadf5d57f4193d12b657ff3dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEquip: {fileID: 11400000, guid: f299c555ac3ca7548af96b8026f9d1b4, type: 2}
   part: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: ccc34760a620d5d4b8c49f5e327db309, type: 2}
   textMeshPro: {fileID: 5821270609849695313}
+--- !u!114 &1452898447904966331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821270609031521758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9da465b6937e384c9942289a9902bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeContextWindow: {fileID: 11400000, guid: 24eb2f8e14f4aaa499222060afed99c1, type: 2}
 --- !u!1 &5821270609849695327
 GameObject:
   m_ObjectHideFlags: 0

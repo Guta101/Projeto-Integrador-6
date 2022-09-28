@@ -7,6 +7,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeReference] private WeaponInterface weapon;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private WeaponsList weapons;
+    private bool canAttack = true;
+    private bool isReloading = false;
 
     private void Awake()
     {
@@ -16,11 +18,31 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Attack()
     {
-        weapon.Attack(attackPoint);
+        if (canAttack)
+        {
+            weapon.Attack(attackPoint);
+            canAttack = false;
+            StartCoroutine(AttackCdTimer());
+        }
     }
 
     public void Reload()
     {
+        if (!isReloading)
+            StartCoroutine(ReloadTimer());
+    }
+
+    IEnumerator AttackCdTimer()
+    {
+        yield return new WaitForSeconds(weapon.ItemData.AttackSpeed);
+        canAttack = true;
+    }
+
+    IEnumerator ReloadTimer()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(weapon.ItemData.ReloadSpeed);
         weapon.Reload();
+        isReloading = false;
     }
 }

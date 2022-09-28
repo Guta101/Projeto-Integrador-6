@@ -22,6 +22,6 @@ public class BasicBullet : BasicAttack
 
     private void MoveBullet()
     {
-        bulletRB.AddForce(transform.forward * weaponData.BulletSpeed);
+        bulletRB.velocity = transform.forward * weaponData.BulletSpeed;
     }
 }

@@ -54,7 +54,7 @@ public class PlayerDashState : PlayerBaseState
 
     private IEnumerator DashTimer()
     {
-        yield return new WaitForSeconds(Context.PlayerStats.DashTime);
+        yield return new WaitForSeconds(Context.PlayerStats.DashDuration);
         CheckSwitchStates();
     }
 

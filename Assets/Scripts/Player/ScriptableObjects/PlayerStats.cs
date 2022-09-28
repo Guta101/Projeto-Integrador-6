@@ -5,26 +5,31 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerStats")]
 public class PlayerStats : ScriptableObject
 {
+    [Header("Base Stats")]
     //  Main Stats
     [SerializeField] private float _maxHP;
-    private float _extraMaxHP;
     [SerializeField] private float _currentHP;
 
     //  Movement
     [SerializeField] private float _playerSpeed;
-    private float _extraPlayerSpeed;
     [SerializeField] private float _dashCooldown;
-    private float _extraDashCooldown;
-    [SerializeField] private float _dashTime;
-    private float _extraDashTime;
+    [SerializeField] private float _dashDuration;
+    
+
+    [Header("Extra Stats")]
+    [SerializeField] private StatVariable extraMaxHP;
+    [SerializeField] private StatVariable extraPlayerSpeed;
+    [SerializeField] private StatVariable extraDashCooldown;
+    [SerializeField] private StatVariable extraDashDuration;
 
     //  Get & Set
-    public float PlayerSpeed { get { return _playerSpeed + _extraPlayerSpeed; } private set { _playerSpeed = value; } }
-    public float MaxHP { get { return _maxHP + _extraMaxHP; } private set { _maxHP = value; } }
-    public float DashCooldown { get { return _dashCooldown + _extraDashCooldown; } private set { _dashCooldown = value; } }
-    public float DashTime { get { return _dashTime + _extraDashTime; } private set { _dashTime = value; } }
+    public float PlayerSpeed { get { return _playerSpeed + extraPlayerSpeed.StatBoost; } private set { _playerSpeed = value; } }
+    public float MaxHP { get { return _maxHP + extraMaxHP.StatBoost; } private set { _maxHP = value; } }
+    public float DashCooldown { get { return _dashCooldown + extraDashCooldown.StatBoost; } private set { _dashCooldown = value; } }
+    public float DashDuration { get { return _dashDuration + extraDashDuration.StatBoost; } private set { _dashDuration = value; } }
 
     //  Increase & Decrease
+    /*
     public void AddMaxHP(float extraHP)
     {
         _extraMaxHP += extraHP;
@@ -60,5 +65,5 @@ public class PlayerStats : ScriptableObject
     {
         _extraDashTime -= extraDashTime;
     }
-
+    */
 }
